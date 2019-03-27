@@ -6,9 +6,6 @@ session_start();
 $password = md5($_POST['password']);
 $email = $_POST['email'];
 
- echo 'Пароль ' . $password . "</br>";
-echo 'логин ' . $email . "</br>";
-
 
 foreach ($_POST as $input) {
 	if (empty($input)) {
@@ -25,6 +22,7 @@ $stmt->bindParam(':password', $password );
 $stmt->bindParam(':email', $email);
 $stmt->execute();
 $checkUser = $stmt->fetchColumn();
+
 var_dump($checkUser);
 
 if ($checkUser) {
